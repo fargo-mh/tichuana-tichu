@@ -1,0 +1,14 @@
+plugins {
+    id 'java'
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src/ch/tichuana/tichu']
+        }
+        resources {
+            srcDirs = ['src/ch/tichuana/tichu/client/resources','src/ch/tichuana/tichu/server/resources']
+        }
+    }
+}
