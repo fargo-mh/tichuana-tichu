@@ -3,6 +3,12 @@
 This project is a java implementation of the card game tichu. It consists of a server and a client. It allows four clients
 to connect to the server and play the game against each other.
 
+This is a special fork of the project pulling in dependencies that may not be available
+in the defualt jdk with gradle.
+
+## Building
+
+
 ## Usage
 
 First the server needs to be started. By default it will run on port ```8080```. This can be changed by editing the 
