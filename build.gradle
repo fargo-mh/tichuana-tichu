@@ -1,5 +1,5 @@
 plugins {
-    id 'java'
+    id 'application'
     id 'org.openjfx.javafxplugin' version '0.0.9'
 }
 
@@ -24,5 +24,6 @@ sourceSets {
 }
 
 dependencies {
-    compile
+    implementation "mysql:mysql-connector-java:8.0.16"
+    implementation 'com.googlecode.json-simple:json-simple:1.1'
 }
