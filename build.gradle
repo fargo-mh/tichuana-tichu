@@ -1,6 +1,17 @@
 plugins {
     id 'application'
+    id 'java'
     id 'org.openjfx.javafxplugin' version '0.0.9'
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class' : 'ch.tichuana.tichu.client.Client'
+    }
+}
+
+application {
+    mainClass = "ch.tichuana.tichu.client.Client"
 }
 
 javafx {
@@ -26,4 +37,5 @@ sourceSets {
 dependencies {
     implementation "mysql:mysql-connector-java:8.0.16"
     implementation 'com.googlecode.json-simple:json-simple:1.1'
+    implementation "org.junit.jupiter:junit-jupiter-api:5.7.0"
 }
