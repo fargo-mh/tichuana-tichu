@@ -2,16 +2,26 @@ plugins {
     id 'application'
     id 'java'
     id 'org.openjfx.javafxplugin' version '0.0.9'
+    id 'org.beryx.jlink' version '2.22.2'
 }
 
 jar {
+    into "src/ch/tichuana/tichu/client/resources", {
+        from 'src/ch/tichuana/tichu/client/resources'
+    }
+    into "src/ch/tichuana/tichu/server/resources", {
+        from 'src/ch/tichuana/tichu/server/resources'
+    }
     manifest {
-        attributes 'Main-Class' : 'ch.tichuana.tichu.client.Client'
+        attributes 'Main-Class' : 'ch.tichuana.tichu.client.ClientLauncher'
+    }
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
     }
 }
 
 application {
-    mainClass = "ch.tichuana.tichu.client.Client"
+    mainClass = "ch.tichuana.tichu.client.ClientLauncher"
 }
 
 javafx {
@@ -27,9 +37,6 @@ sourceSets {
     main {
         java {
             srcDirs = ['src/ch/tichuana/tichu']
-        }
-        resources {
-            srcDirs = ['src/ch/tichuana/tichu/client/resources','src/ch/tichuana/tichu/server/resources']
         }
     }
 }
