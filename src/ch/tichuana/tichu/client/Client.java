@@ -10,8 +10,8 @@ import javafx.application.Application;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
-import java.io.File;
-import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.io.FileNotFoundException;
 import java.util.Locale;
 
@@ -70,9 +70,10 @@ public class Client extends Application {
 		serviceLocator.setTranslator(translator);
 
 		//loading special font from resources, especially for linux and older windows configurations
-		try {
-			Font.loadFont(new FileInputStream(new File(configuration.getProperty("fontPath"))), 20.0);
-		} catch (FileNotFoundException e) {
+		ClassLoader classLoader = Client.class.getClassLoader();
+		try (InputStream is = classLoader.getResourceAsStream(configuration.getProperty("fontPath"))) {
+			Font.loadFont(is, 20.0);
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}

@@ -80,7 +80,7 @@ public class Tutorial extends Stage {
 
         this.getIcons().add(new Image(configuration.getProperty("tichu-icon")));
         scene.getStylesheets().add(
-                getClass().getResource(configuration.getProperty("tutorialStyle")).toExternalForm());
+                getClass().getClassLoader().getResource(configuration.getProperty("tutorialStyle")).toExternalForm());
     }
 
     /**

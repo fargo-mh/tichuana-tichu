@@ -57,7 +57,7 @@ public class ChatView extends Stage{
 
         Scene scene = new Scene(box);
         scene.getStylesheets().add(
-                getClass().getResource(ServiceLocator.getServiceLocator()
+                getClass().getClassLoader().getResource(ServiceLocator.getServiceLocator()
                         .getConfiguration().getProperty("chatStyle")).toExternalForm());
         this.setScene(scene);
         this.setWidth(500);

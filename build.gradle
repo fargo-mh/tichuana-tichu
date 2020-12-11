@@ -5,6 +5,8 @@ plugins {
     id 'org.beryx.jlink' version '2.22.2'
 }
 
+mainClassName = 'ch.tichuana.tichu.client.ClientLauncher'
+
 jar {
     into "src/ch/tichuana/tichu/client/resources", {
         from 'src/ch/tichuana/tichu/client/resources'
@@ -37,6 +39,9 @@ sourceSets {
     main {
         java {
             srcDirs = ['src/ch/tichuana/tichu']
+        }
+        resources {
+            srcDirs = ['src/ch/tichuana/tichu/client/resources', 'src/ch/tichuana/tichu/server/resources']
         }
     }
 }

@@ -33,14 +33,14 @@ public class GameView {
 
 		this.clientModel = clientModel;//delete after testing
 		this.stage = stage;
-		Translator translator = ServiceLocator.getServiceLocator().getTranslator();
+		Translator translator = ServiceLocator.getServiceLocator().getTranslator(); 
 		this.configuration = ServiceLocator.getServiceLocator().getConfiguration();
 
 		this.lobbyView = new LobbyView();
 		Scene lobby = new Scene(this.lobbyView);
 
 		lobby.getStylesheets().add(
-				getClass().getResource(configuration.getProperty("lobbyStyle")).toExternalForm());
+				getClass().getClassLoader().getResource(configuration.getProperty("lobbyStyle")).toExternalForm());
 
 		this.stage.setScene(lobby);
 		this.stage.getIcons().add(new Image(configuration.getProperty("tichu-icon")));
@@ -88,7 +88,7 @@ public class GameView {
 	public void updateView() {
 		Scene game = new Scene(this.playView);
 		game.getStylesheets().add(
-				getClass().getResource(configuration.getProperty("playStyle")).toExternalForm());
+				getClass().getClassLoader().getResource(configuration.getProperty("playStyle")).toExternalForm());
 
 		stage.setWidth(this.initialStageWith);
 		stage.setHeight(this.initialStageHeight);

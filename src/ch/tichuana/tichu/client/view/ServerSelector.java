@@ -59,7 +59,7 @@ public class ServerSelector extends Stage {
         Scene scene = new Scene(root);
 
         scene.getStylesheets().add(
-                getClass().getResource(configuration.getProperty("tutorialStyle")).toExternalForm());
+                getClass().getClassLoader().getResource(configuration.getProperty("tutorialStyle")).toExternalForm());
         root.getStyleClass().add("red");
         this.setScene(scene);
         this.setTitle(translator.getString("serverselector.title"));

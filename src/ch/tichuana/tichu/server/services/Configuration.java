@@ -18,8 +18,9 @@ public class Configuration {
     public Configuration(String configPath){
         this.properties = new Properties();
         this.configPath = configPath;
-        try (InputStream input = new FileInputStream(configPath)) {
-            properties.load(input);
+        ClassLoader classLoader = getClass().getClassLoader();
+        try (InputStream in = classLoader.getResourceAsStream(configPath)) {
+            properties.load(in);
         } catch (IOException e){
             e.printStackTrace();
         }
