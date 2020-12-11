@@ -7,7 +7,9 @@ This is a special fork of the project pulling in dependencies that may not be av
 in the defualt jdk with gradle.
 
 ## Building
-To 
+To build, simply run ```gradlew build```. This will create a jar under build/libs. Running that jar with 
+```java -jar tichuana-tichu.jar```
+will start the client.
 
 ## Usage
 
